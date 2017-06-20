@@ -1,0 +1,68 @@
+[
+  {
+    "id": "ee205a17.1e2f4",
+    "type": "tab",
+    "label": "Flow 1"
+  },
+  {
+    "id": "c9c9d234.30ea48",
+    "type": "http in",
+    "z": "ee205a17.1e2f4",
+    "name": "From Device",
+    "url": "/device",
+    "method": "post",
+    "swaggerDoc": "",
+    "x": 156.5,
+    "y": 128,
+    "wires": [
+      [
+        "b2a4357e.410ea8"
+      ]
+    ]
+  },
+  {
+    "id": "5170ec9f.8ab064",
+    "type": "debug",
+    "z": "ee205a17.1e2f4",
+    "name": "",
+    "active": true,
+    "console": "false",
+    "complete": "false",
+    "x": 536.5,
+    "y": 232,
+    "wires": []
+  },
+  {
+    "id": "d63c1300.6513f",
+    "type": "http request",
+    "z": "ee205a17.1e2f4",
+    "name": "Save to M2X",
+    "method": "PUT",
+    "ret": "txt",
+    "url": "http://api-m2x.att.com/v2/devices/7b9675184240dd80b4955f7162008d6e/streams/device_1/value",
+    "tls": "",
+    "x": 423.5,
+    "y": 125,
+    "wires": [
+      [
+        "5170ec9f.8ab064"
+      ]
+    ]
+  },
+  {
+    "id": "b2a4357e.410ea8",
+    "type": "function",
+    "z": "ee205a17.1e2f4",
+    "name": "M2X Format",
+    "func": "msg.headers = {\n \"X-M2X-KEY\": \"568a6b5d7f7ab0c3676fc2c34e24a1f4\"\n}\nmsg.payload = { \"value\": msg.payload.value };\n\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "x": 283.5,
+    "y": 227,
+    "wires": [
+      [
+        "d63c1300.6513f"
+      ]
+    ]
+  }
+]
