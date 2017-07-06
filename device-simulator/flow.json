@@ -54,7 +54,7 @@
     "type": "function",
     "z": "ee205a17.1e2f4",
     "name": "M2X Format",
-    "func": "msg.headers = {\n \"X-M2X-KEY\": \"568a6b5d7f7ab0c3676fc2c34e24a1f4\"\n}\nmsg.payload = { \"value\": msg.payload.value };\n\nreturn msg;",
+    "func": "msg.headers = {\n \"X-M2X-KEY\": \"<<<ENTER YOUR KEY>>>\"\n}\nmsg.payload = { \"value\": msg.payload.value };\n\nreturn msg;",
     "outputs": 1,
     "noerr": 0,
     "x": 283.5,

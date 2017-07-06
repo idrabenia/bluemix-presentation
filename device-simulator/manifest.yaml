@@ -1,0 +1,5 @@
+---
+applications:
+- name: bm-device-simulator
+  memory: 512M
+  no-route: true
